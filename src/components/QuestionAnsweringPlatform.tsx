@@ -34,6 +34,7 @@ import useApi from '@/hooks/useApi';
 import DerivationTree from '@/components/DerivationTree';
 import Text from '@/components/Text';
 import QuestionHistoryModal from '@/components/QuestionHistoryModal';
+import LoadingPage from '@/components/LoadingPage';
 import { Question, Answer, Config, Evaluation } from '@/types';
 import { MODELS, METHODS } from '@/constants';
 
@@ -56,6 +57,7 @@ const QuestionAnsweringPlatform = () => {
     evaluation_author: ''
   });
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [MainLoading, setMainLoading] = useState(true);
   const { toast } = useToast()
 
   const { loading: askLoading, error: askError, execute: executeAskQuestion } = useApi(askQuestion);
@@ -81,7 +83,9 @@ const QuestionAnsweringPlatform = () => {
     try {
       const history = await executeGetQuestionHistory(null);
       setQuestionHistory(history);
+      setMainLoading(false);
     } catch (error) {
+      setMainLoading(false);
       console.error('Failed to load question history:', error);
       toast({
         variant: "destructive",
@@ -204,6 +208,10 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
   const get_show_method = (name: string) => {
     const method = METHODS.find((method) => method.name === name);
     return method ? method.show_name : name
+  }
+
+  if (MainLoading) {
+    return <LoadingPage />;
   }
 
   return (
