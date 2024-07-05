@@ -100,15 +100,23 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
     setCurrentQuestionId(selectedQuestion.id);
     setTitleQuestion(selectedQuestion.question);
     setAnswers(selectedQuestion.answers);
+    setCurrentAnswerIndex(0);
     setShowDerivation(false);
 };
 
   const handleAsk = async () => {
     if (question.trim() === '' || askLoading) return;
 
+    if (currentQuestionId && question === titleQuestion) {
+      console.log(question);
+      console.log(titleQuestion);
+      handleRedo();
+      return;
+    }
+
     try {
       const data = await executeAskQuestion({ question, config });
-      setAnswers([data.answer, ...answers]);
+      setAnswers([data.answer]);
       setCurrentQuestionId(data.questionId);
       setCurrentAnswerIndex(0);
       setEvaluation({ like: null, comment: '', evaluation_author: '' });
