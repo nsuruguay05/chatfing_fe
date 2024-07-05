@@ -1,0 +1,42 @@
+.derivation-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.children {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  /* Align everything to bottom */
+  align-items: flex-end;
+}
+
+.child {
+  margin: 0 10px;
+}
+
+.subtree-rule {
+  display: flex;
+  /* Align everything to the top */
+  /* align-items: center; */
+}
+
+.subtree {
+  position: relative;
+}
+
+.rule {
+  margin-left: 10px;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+  position: relative;
+}
+
+.rule-text {
+  margin-left: 10px;
+  position: relative;
+}
