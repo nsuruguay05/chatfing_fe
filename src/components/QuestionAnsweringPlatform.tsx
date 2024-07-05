@@ -86,7 +86,7 @@ const QuestionAnsweringPlatform = () => {
       toast({
         variant: "destructive",
         description: "Error al cargar el historial de preguntas",
-        action: <ToastAction altText="Reintentar" onClick={loadQuestionHistory} />,
+        action: <ToastAction altText="Reintentar" onClick={loadQuestionHistory} >Reintentar</ToastAction>,
       })
     }
   };
@@ -117,13 +117,13 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
         toast({
           variant: "destructive",
           description: "Error al enviar la pregunta: " + error.response.data.message,
-          action: <ToastAction altText="Reintentar" onClick={handleAsk} />,
+          action: <ToastAction altText="Reintentar" onClick={handleAsk} >Reintentar</ToastAction>,
         })
       } else {
         toast({
           variant: "destructive",
           description: "Error al generar la respuesta",
-          action: <ToastAction altText="Reintentar" onClick={handleAsk} />,
+          action: <ToastAction altText="Reintentar" onClick={handleAsk} >Reintentar</ToastAction>,
         })
       }
     }
@@ -149,7 +149,7 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
         toast({
           variant: "destructive",
           description: "Error al generar la respuesta: " + error.response.data.message,
-          action: <ToastAction altText="Reintentar" onClick={handleRedo} />,
+          action: <ToastAction altText="Reintentar" onClick={handleRedo} >Reintentar</ToastAction>,
         })
       } else {
         toast({
@@ -187,7 +187,7 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
       toast({
         variant: "destructive",
         description: "Error al enviar la evaluación: " + error.response.data.message,
-        action: <ToastAction altText="Reintentar" onClick={handleSubmitEvaluation} />,
+        action: <ToastAction altText="Reintentar" onClick={handleSubmitEvaluation} >Reintentar</ToastAction>,
       })
     }
   };
