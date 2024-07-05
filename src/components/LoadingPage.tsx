@@ -10,7 +10,7 @@ const LoadingPage = () => {
           clearInterval(timer);
           return 100;
         }
-        const alpha = process.env.LOADING_ALPHA ? parseFloat(process.env.LOADING_ALPHA) : 1.2;
+        const alpha = process.env.NEXT_PUBLIC_LOADING_ALPHA ? parseFloat(process.env.NEXT_PUBLIC_LOADING_ALPHA) : 1.2;
         const diff = Math.random() * alpha;
         return Math.min(oldProgress + diff, 100);
       });

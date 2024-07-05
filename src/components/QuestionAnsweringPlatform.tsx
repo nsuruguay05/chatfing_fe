@@ -225,10 +225,10 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
   return (
     <div className={`mx-auto p-4 ${isDarkMode ? 'dark' : ''}`}>
       <div className="flex items-center space-x-2 mb-4">
-          <QuestionHistoryModal
-            questions={questionHistory}
-            onSelectQuestion={handleSelectQuestion}
-          />
+        <QuestionHistoryModal
+          questions={questionHistory}
+          onSelectQuestion={handleSelectQuestion}
+        />
         <Input
           type="text"
           placeholder="Escribir pregunta"
@@ -241,6 +241,7 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
         <Button onClick={handleAsk} disabled={redoLoading || askLoading || question.trim() === ''}>
           {redoLoading || askLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Envíar'}
         </Button>
+        {(! process.env.NEXT_PUBLIC_SETTINGS_DISABLED || process.env.NEXT_PUBLIC_SETTINGS_DISABLED.toLowerCase() !== 'true') && (
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" size="icon">
@@ -295,6 +296,7 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
             </div>
           </DialogContent>
         </Dialog>
+        )}
         <Button variant="outline" size="icon" onClick={toggleDarkMode}>
           {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
         </Button>
