@@ -108,8 +108,6 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
     if (question.trim() === '' || askLoading) return;
 
     if (currentQuestionId && question === titleQuestion) {
-      console.log(question);
-      console.log(titleQuestion);
       handleRedo();
       return;
     }
@@ -239,7 +237,7 @@ const handleSelectQuestion = async (selectedQuestion: Question) => {
           disabled={redoLoading || askLoading}
         />
         <Button onClick={handleAsk} disabled={redoLoading || askLoading || question.trim() === ''}>
-          {redoLoading || askLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Envíar'}
+          {redoLoading || askLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Enviar'}
         </Button>
         {(! process.env.NEXT_PUBLIC_SETTINGS_DISABLED || process.env.NEXT_PUBLIC_SETTINGS_DISABLED.toLowerCase() !== 'true') && (
         <Dialog>
