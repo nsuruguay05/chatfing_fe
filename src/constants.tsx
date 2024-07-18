@@ -10,6 +10,11 @@ export const MODELS = [
         identifier: 'gpt-3.5-turbo',
     },
     {
+        show_name: 'GPT 4o Mini',
+        name: 'GPT_4o_MINI',
+        identifier: 'gpt-4o-mini',
+    },
+    {
         show_name: 'Gemini 1.5 Flash',
         name: 'GEMINI_1_5_FLASH',
         identifier: 'gemini-1.5-flash',
