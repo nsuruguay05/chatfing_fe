@@ -5,6 +5,11 @@ export const MODELS = [
         identifier: 'claude-3-haiku-20240307',
     },
     {
+        show_name: 'Claude 3 Opus',
+        name: 'CLAUDE_3_OPUS',
+        identifier: 'claude-3-opus-20240229',
+    },
+    {
         show_name: 'GPT 3.5 Turbo',
         name: 'GPT_3_5_TURBO',
         identifier: 'gpt-3.5-turbo',
